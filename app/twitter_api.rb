@@ -16,7 +16,7 @@ class TwitterApi
 	def tweet_counts_by_hour(screen_name)
 		histo = Histogram.new
 		get_all_tweets(screen_name).each do |tweet|
-			histo.add(tweet[:created_at])
+			histo.add(tweet.created_at)
 		end
 
 		histo
@@ -25,22 +25,14 @@ class TwitterApi
 	def collect_with_max_id(collection=[], max_id=nil, &block)
 	  response = yield(max_id)
 	  collection += response
-	  response.empty? ? collection.flatten : collect_with_max_id(collection, response.last[:id] - 1, &block)
+	  response.empty? ? collection.flatten : collect_with_max_id(collection, response.last.id - 1, &block)
 	end
 
 	def get_all_tweets(screen_name)
 	  collect_with_max_id do |max_id|
 	    options = {:screen_name => "#{screen_name}", :count => 100}
 	    options[:max_id] = max_id unless max_id.nil?
-	    result = @client.user_timeline(options).map do |tweet|
-	    	obj = {
-	    		id: tweet.id,
-	    		created_at: tweet.created_at
-	    	}
-	    	p obj
-	    end
-
-	    result
+	    @client.user_timeline(options)
 	  end
 	end
 

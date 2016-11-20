@@ -15,7 +15,7 @@ class TwitterHistogram < Sinatra::Base
 
   get '/hello/:name' do
   	greeting_name = params[:name]
-  	"Hello, #{@greeting_name.capitalize}!"
+  	"Hello, #{@greeting_name.capitalize}"
   end
 
   get '/histogram/:user' do
@@ -25,8 +25,8 @@ class TwitterHistogram < Sinatra::Base
   	api = TwitterApi.new(config)
   	histo = api.tweet_counts_by_hour(name)
   	{
-  		counts: histo.counts,
-  		most_active_at: histo.most_active_at
+  		counts: histo.counts_by_hour,
+  		most_active_during: histo.most_active_during
   	}.to_json
   end
 
