@@ -3,11 +3,15 @@ Twitter Histogram
 
 This program collects all the tweets from a user account and organizes them by hour of the day. Returns an array of tweet counts during each hour and also the hour that the user is most active in (i.e. tweets the most).
 
-**Run**
+**Setup**
 
-1. bundle install
-2. rackup
-3. Access the app on port 9292
+1. Install dependencies
+	*bundle install*
+2. Run tests
+	*rake* 
+3. Run the app
+	*rackup*
+4. Access the app on port 9292
 
 **Endpoints**
 
