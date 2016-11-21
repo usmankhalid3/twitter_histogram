@@ -6,11 +6,18 @@ This program collects all the tweets from a user account and organizes them by h
 **Setup**
 
 1. Install dependencies
-	*bundle install*
+	
+
+    *bundle install*
+
 2. Run tests
-	*rake* 
+
+    *rake* 
+
 3. Run the app
-	*rackup*
+
+    *rackup*
+
 4. Access the app on port 9292
 
 **Endpoints**
