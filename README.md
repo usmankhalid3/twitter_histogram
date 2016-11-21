@@ -5,16 +5,16 @@ This program collects all the tweets from a user account and organizes them by h
 
 **Setup**
 
-1. Install dependencies
+1. Execute the following command to install dependencies
 	
 
     *bundle install*
 
-2. Run tests
+2. Execute the following command to run test suite
 
     *rake* 
 
-3. Run the app
+3. Execute the following command to run the app
 
     *rackup*
 
